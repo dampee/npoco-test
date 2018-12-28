@@ -1,2 +1,2 @@
 # NPoco test
-NPoco proof of concept with SQLiite, Db-up, using FetchOneToMany and ReferenceType.Many
+[NPoco](https://github.com/schotime/npoco) proof of concept with SQLite, [Db-up](https://github.com/DbUp/DbUp), using FetchOneToMany and ReferenceType.Many
