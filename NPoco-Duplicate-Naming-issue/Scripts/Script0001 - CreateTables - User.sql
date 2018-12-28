@@ -1,0 +1,6 @@
+﻿CREATE TABLE `User` (
+	`UserId`	INTEGER PRIMARY KEY AUTOINCREMENT,
+	`Name`	TEXT,
+	`Email`	TEXT,
+	`Timestamp`	INTEGER
+);
