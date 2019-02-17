@@ -2,10 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using NPoco_Duplicate_Naming_issue.Models;
 
 namespace NPoco_Duplicate_Naming_issue
 {
-    internal class Program
+    internal partial class Program
     {
         private static void Main(string[] args)
         {
@@ -47,35 +48,8 @@ namespace NPoco_Duplicate_Naming_issue
                     Console.WriteLine("Contact : " + contactDto.Description);
                 }
             }
-            
+
             if (Debugger.IsAttached) { Debugger.Break(); } else { Console.ReadKey(); }
-        }
-
-        [TableName("User")]
-        [PrimaryKey("UserId", AutoIncrement = true)]
-        public class UserDto
-        {
-            public int UserId { get; set; }
-            public string Name { get; set; }
-            public string Email { get; set; }
-            [NPoco.Reference(NPoco.ReferenceType.Many, ColumnName = "UserId", ReferenceMemberName = "UserId")]
-            //[Column]
-            public List<ContactDto> Contacts { get; set; }
-            [VersionColumn("Timestamp", VersionColumnType.Number)]
-            public int TimeStamp { get; set; }
-        }
-
-        [TableName("Contact")]
-        [PrimaryKey("ContactId", AutoIncrement = true)]
-        public class ContactDto
-        {
-            public int ContactId { get; set; }
-            
-            [Column("UserId")]
-            public int UserId { get; set; }
-            public string Description { get; set; }
-            [VersionColumn("Timestamp", VersionColumnType.Number)]
-            public int TimeStamp { get; set; }
         }
     }
 }
